@@ -1,0 +1,6 @@
+{
+  "title": "PatPat",
+  "icon": "MyIcon",
+  "pages": ["index", "test"],
+  "root": true
+}

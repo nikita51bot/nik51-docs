@@ -15,6 +15,20 @@ export const docs = defineDocs({
   },
 });
 
+
+export const patpat = defineDocs({
+  dir: 'content/patpat',
+  docs: {
+    schema: frontmatterSchema,
+    postprocess: {
+      includeProcessedMarkdown: true,
+    },
+  },
+  meta: {
+    schema: metaSchema,
+  },
+});
+
 export default defineConfig({
   mdxOptions: {
     // MDX options
