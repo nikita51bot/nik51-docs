@@ -1,0 +1,18 @@
+{
+  "index": {
+    "title": "Hello World",
+    "description": "Your first document",
+    "intro": "Welcome to the docs! You can start writing documents in `/content/docs`.",
+    "what_is_next": {
+      "title": "What is Next?"
+    },
+    "cards": {
+      "nextjs": {
+        "title": "Learn more about Next.js"
+      },
+      "fumadocs": {
+        "title": "Learn more about Fumadocs"
+      }
+    }
+  }
+}

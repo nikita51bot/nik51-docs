@@ -1,0 +1,6 @@
+{
+  "title": "Docs",
+  "icon": "MyIcon",
+  "pages": ["index", "test", "why"],
+  "root": true
+}

@@ -1,4 +1,4 @@
-import { getPageImage, source } from '@/lib/source';
+import { getPageImage, sources, source } from '@/lib/source';
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
@@ -6,10 +6,18 @@ import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
 
-export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
+export default async function Page(props: Readonly<PageProps<'/docs/[[...slug]]'>>) {
+
   const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+
+  console.log('slug:', params.slug);
+  let page = source.getPage(params.slug);
+  if (!page && params.slug && sources.has(params.slug[0])) {
+    page = sources.get(params.slug[0]).getPage(params.slug.slice(1));
+  }
+  if (!page) {
+    notFound();
+  }
 
   const MDX = page.data.body;
   const gitConfig = {
@@ -48,8 +56,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): Promise<Metadata> {
   const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+  let page = source.getPage(params.slug);
+  if (!page && params.slug && sources.has(params.slug[0])) {
+    page = sources.get(params.slug[0]).getPage(params.slug.slice(1));
+  }
+  if (!page) {
+    notFound();
+  }
 
   return {
     title: page.data.title,
