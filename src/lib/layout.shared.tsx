@@ -1,10 +1,9 @@
 import Logo from '@/components/ui/logo';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { BookOpenText } from 'lucide-react';
-
 import { i18n } from '@/lib/i18n';
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(locale: string): BaseLayoutProps {
   return {
     i18n,
     nav: {
@@ -14,14 +13,14 @@ export function baseOptions(): BaseLayoutProps {
         </>
       ),
       transparentMode: 'top',
-
+      url: `/${locale}`
     },
 
     links: [
       {
         icon: <BookOpenText />,
         text: 'Documentation',
-        url: '/docs',
+        url: `/${locale}/docs`,
         // secondary items will be displayed differently on navbar
         secondary: false,
       },

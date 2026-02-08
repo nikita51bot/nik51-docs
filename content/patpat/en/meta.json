@@ -1,6 +1,8 @@
 {
   "title": "PatPat",
-  "icon": "MyIcon",
+  "description": "Documentation about PatPat Mod",
+
   "pages": ["index", "test"],
   "root": true
 }
+

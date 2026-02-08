@@ -1,5 +1,5 @@
 import Logo from '@/components/ui/logo';
-import Link from 'next/link';
+import DynamicLink from 'fumadocs-core/dynamic-link';
 
 export default function HomePage() {
   return (
@@ -8,12 +8,11 @@ export default function HomePage() {
       <h1 className="text-2xl font-bold mb-4">Welcome to nik51-docs!</h1>
       <p>
         It&apos;s pretty empty here for now — I&apos;ll add more content for my projects later. For now, you can just visit{' '}
-        <Link href="/docs" className="font-medium underline">
+        <DynamicLink href="/[lang]/docs" className="font-medium underline">
           /docs
-        </Link>
+        </DynamicLink>
         .
       </p>
-      
     </div>
   );
 }
