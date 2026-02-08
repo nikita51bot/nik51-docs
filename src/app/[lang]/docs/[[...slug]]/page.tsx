@@ -5,15 +5,15 @@ import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
+import { LoaderOutput } from 'fumadocs-core/source';
 
-export default async function Page(props: Readonly<PageProps<'/docs/[[...slug]]'>>) {
+export default async function Page(props: Readonly<PageProps<'/[lang]/docs/[[...slug]]'>>) {
 
   const params = await props.params;
 
-  console.log('slug:', params.slug);
-  let page = source.getPage(params.slug);
+  let page = source.getPage(params.slug, params.lang);
   if (!page && params.slug && sources.has(params.slug[0])) {
-    page = sources.get(params.slug[0]).getPage(params.slug.slice(1));
+    page = (sources.get(params.slug[0]) as LoaderOutput<any>).getPage(params.slug.slice(1), params.lang);
   }
   if (!page) {
     notFound();
@@ -50,15 +50,15 @@ export default async function Page(props: Readonly<PageProps<'/docs/[[...slug]]'
   );
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return source.generateParams();
 }
 
-export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): Promise<Metadata> {
+export async function generateMetadata(props: PageProps<'/[lang]/docs/[[...slug]]'>): Promise<Metadata> {
   const params = await props.params;
-  let page = source.getPage(params.slug);
+  let page = source.getPage(params.slug, params.lang);
   if (!page && params.slug && sources.has(params.slug[0])) {
-    page = sources.get(params.slug[0]).getPage(params.slug.slice(1));
+    page = (sources.get(params.slug[0]) as LoaderOutput<any>).getPage(params.slug.slice(1), params.lang);
   }
   if (!page) {
     notFound();
