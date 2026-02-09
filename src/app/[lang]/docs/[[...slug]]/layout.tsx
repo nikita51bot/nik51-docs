@@ -5,26 +5,33 @@ import { LoaderOutput } from 'fumadocs-core/source';
 import { SidebarTab } from 'fumadocs-ui/components/sidebar/tabs/index';
 import { i18n } from '@/lib/i18n';
 
-const baseSidebarTabs: SidebarTab[] = [
+const sidebarTabs: Record<string, SidebarTab[]> = {
+  "ru": [
+    {
+      title: 'Документация',
+      description: 'Основная документация проекта',
+      url: '/ru/docs',
+    },
+    {
+      title: 'PatPat плагин',
+      description: 'Документация PatPat плагина',
+      url: '/ru/docs/patpat-plugin',
+    }
+  ],
+  "en": [
     {
       title: 'Docs',
       description: 'Main documentation',
-      url: '/docs',
+      url: '/en/docs',
     },
     {
-      title: 'PatPat Mod',
-      description: 'Documentation about PatPat Mod',
-      url: '/docs/patpat',
+      title: 'PatPat Plugin',
+      description: 'Documentation about PatPat plugin',
+      url: '/en/docs/patpat-plugin',
     }
   ]
+};
 
-const sidebarTabs: Record<string, SidebarTab[]> = {};
-for(const langCode of i18n.languages){
-  sidebarTabs[langCode] = structuredClone(baseSidebarTabs)
-  for(const tab of sidebarTabs[langCode]){
-    tab.url = `/${langCode}${tab.url}`
-  }
-}
 
 export default async function Layout({ children, params }: LayoutProps<'/[lang]/docs/[[...slug]]'>) {
   let tree = null

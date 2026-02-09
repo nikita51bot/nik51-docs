@@ -1,4 +1,4 @@
-import { docs, patpat } from 'fumadocs-mdx:collections/server';
+import { docs, patpat_plugin } from 'fumadocs-mdx:collections/server';
 import { type InferPageType, loader, LoaderOutput } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 import { i18n } from "@/lib/i18n";
@@ -12,11 +12,11 @@ export const source = loader({
 });
 
 export const sources = new Map<string, LoaderOutput<any>>([
-  ["patpat",
+  ["patpat-plugin",
     loader({
-      baseUrl: '/docs/patpat',
+      baseUrl: '/docs/patpat-plugin',
       i18n,
-      source: patpat.toFumadocsSource(),
+      source: patpat_plugin.toFumadocsSource(),
     })
   ],
 ])

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Logo(
+export function DocsLogo(
     props: Readonly<Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'ref'>>,
 ) {
     const { className, style, width = 1024, height = 1024 } = props;

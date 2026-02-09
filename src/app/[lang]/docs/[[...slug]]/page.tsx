@@ -7,6 +7,7 @@ import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
 import { LoaderOutput } from 'fumadocs-core/source';
 
+
 export default async function Page(props: Readonly<PageProps<'/[lang]/docs/[[...slug]]'>>) {
 
   const params = await props.params;

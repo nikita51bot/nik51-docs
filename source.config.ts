@@ -11,8 +11,8 @@ export const docs = defineDocs({
     },
   },
 });
-export const patpat = defineDocs({
-  dir: 'content/patpat',
+export const patpat_plugin = defineDocs({
+  dir: 'content/patpat-plugin',
   docs: {
     schema: frontmatterSchema,
     postprocess: {
@@ -23,6 +23,7 @@ export const patpat = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
+    
     // MDX options
   },
 });

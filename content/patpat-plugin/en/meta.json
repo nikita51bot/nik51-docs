@@ -1,0 +1,8 @@
+{
+  "title": "PatPat Plugin",
+  "description": "Documentation about PatPat Plugin",
+
+  "pages": ["index"],
+  "root": true
+}
+
