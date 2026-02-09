@@ -1,0 +1,89 @@
+---
+title: Quick Start
+description: Getting started with the plugin
+---
+import { ModrinthLogo, CurseForgeLogo } from '@/components/ui/link-icons';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { GithubInfo } from 'fumadocs-ui/components/github-info';
+import { Github, PartyPopper } from 'lucide-react';
+
+## Introduction
+
+The PatPat plugin is a server-side implementation of the PatPat modification,
+designed for servers running Bukkit, Spigot, Paper, Folia, and their forks.
+
+<Callout type="warn">
+The plugin does **NOT** replace the functionality of the original mod!
+
+This means that if players join the server without the mod installed, they will not see
+other players being patted, regardless of whether the plugin is installed on the server.
+</Callout>
+
+<Steps>
+<Step>
+### Set up the server [!toc]
+
+If this is your first time doing this, [this guide](https://docs.papermc.io/paper/getting-started/) may help.
+</Step>
+
+<Step>
+### Download the plugin [!toc]
+
+Download the plugin from the official sources listed [below](#plugin).
+</Step>
+
+<Step>
+### Move it to the plugins folder [!toc]
+</Step>
+
+<Step>
+### Start the server [!toc]
+</Step>
+</Steps>
+
+## Plugin Installation
+
+The plugin is installed in the same way as other plugins.
+Place the downloaded file into the server's `plugins` folder.
+Your final structure should look like this:
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+<Files>
+  <Folder name="server-folder" defaultOpen>
+    <Folder name="plugins" defaultOpen>
+      <File className="text-fd-primary" name="patpat-plugin-1.2.5.jar" />
+    </Folder>
+    <Folder className="text-fd-muted-foreground" name="world" disabled />
+    <Folder className="text-fd-muted-foreground" name="world_nether" disabled />
+    <Folder className="text-fd-muted-foreground" name="world_the_end" disabled />
+    <File name="server.jar" />
+    <File name="server.properties" />
+    <File name="start.sh" />
+    <File name="global.css" />
+  </Folder>
+</Files>
+
+After that, the plugin will be ready to use!
+
+## Links
+
+#### Plugin
+<Cards>
+  <Card
+    href="https://modrinth.com/plugin/patpat"
+    title="Modrinth"
+    icon={<ModrinthLogo/>} 
+  />
+  <Card
+    href="https://www.curseforge.com/minecraft/bukkit-plugins/patpat-plugin"
+    title="CurseForge"
+    icon={<CurseForgeLogo className="fd-foreground"/>} 
+  />
+</Cards>
+
+#### Source Code
+<GithubInfo
+  owner="LopyMine"
+  repo="PatPat-Plugin"
+/>

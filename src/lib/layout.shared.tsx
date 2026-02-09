@@ -1,4 +1,4 @@
-import Logo from '@/components/ui/logo';
+import { DocsLogo } from '@/components/ui/logo';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { BookOpenText } from 'lucide-react';
 import { i18n } from '@/lib/i18n';
@@ -9,7 +9,7 @@ export function baseOptions(locale: string): BaseLayoutProps {
     nav: {
       title: (
         <>
-          <Logo className='size-5 drop-shadow' /> nik51-docs
+          <DocsLogo className='size-5 drop-shadow' /> nik51-docs
         </>
       ),
       transparentMode: 'top',
