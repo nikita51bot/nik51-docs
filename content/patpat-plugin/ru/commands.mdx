@@ -1,0 +1,57 @@
+---
+title: Команды
+description: Команды и как они работают
+---
+import { LuckPermsLogo } from '@/components/ui/icons';
+import DynamicLink from 'fumadocs-core/dynamic-link';
+
+Плагин предоставляет комплекс команд, с помощью которых можно управлять параметрами плагина или
+выполнять различные действия. Для каждой команды требуется право на её использование. Для управления
+правами игроков необходимо использовать сторонний плагин на управление разрешениями, для этого рекомендую
+плагин [<LuckPermsLogo className="inline pb-[3px]" height="24px"/> LuckPerms](https://luckperms.net/) Также стоит
+учитывать во внимание, что вложенные права будут доступны игроку при предоставлении прав на предыдущие,
+например, для команды:
+
+```shell
+/patpat ratelimit set limit
+```
+
+Пользователю необходимо выдать права ниже:
+
+```plain
+patpat.command.ratelimit
+patpat.command.ratelimit.set
+patpat.command.ratelimit.set.limit
+```
+
+Также можно выдать сразу права на все подкоманды:
+
+```plain
+patpat.command.ratelimit
+patpat.command.ratelimit.*
+```
+
+<Callout type="info">
+Вы можете узнать, какие права недоступны пользователю в [режиме отладки]() (с версии 1.2.5)
+</Callout>
+
+Права для каждой команды указаны ниже
+
+| Команда                                                                                                                  | Право                                  | Описание                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ---------------------------------------------------------------- |
+| /patpat info                                                                                                             | patpat.command.info                    | Вывод информации о плагине и сервере                             |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#add">/patpat list add</DynamicLink>                        | patpat.command.list.add                | Добавление игрока в список                                       |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#info">/patpat list info</DynamicLink>                      | patpat.command.list.info               | Вывод информации, какие игроки находятся в списке и режим списка |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#remove">/patpat list remove</DynamicLink>                  | patpat.command.list.remove             | Удаление игрока из списка                                        |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#set">/patpat list set</DynamicLink>                        | patpat.command.list.set                | Установка режима работы списка                                   |
+| /patpat pat                                                                                                              | patpat.command.pat                     | Погладить сущность                                               |
+| /patpat permission disable                                                                                               | patpat.command.permission.toggle       | Выключить разрешение на поглаживания                             |
+| /patpat permission enable                                                                                                | patpat.command.permission.toggle       | Включить разрешение на поглаживания                              |
+| /patpat permission set                                                                                                   | patpat.command.permission.set          | Установка разрешения для поглаживаний                            |
+| /patpat ratelimit disable                                                                                                | patpat.command.ratelimit.toggle        | Выключение лимита запросов                                       |
+| /patpat ratelimit enable                                                                                                 | patpat.command.ratelimit.toggle        | Включение лимита запросов                                        |
+| /patpat ratelimit info                                                                                                   | patpat.command.ratelimit.info          | Вывод информации о лимите запросов                               |
+| /patpat ratelimit set increment                                                                                          | patpat.command.ratelimit.set.increment | Установка количества увеличения токенов для лимита запросов      |
+| /patpat ratelimit set interval                                                                                           | patpat.command.ratelimit.set.interval  | Установка интервала увеличения токенов для лимита запросов       |
+| /patpat ratelimit set limit                                                                                              | patpat.command.ratelimit.set.limit     | Установка лимитов токенов у игроков для лимита запросов          |
+| /patpat reload                                                                                                           | patpat.command.reload                  | Перезагрузка конфига                                             |

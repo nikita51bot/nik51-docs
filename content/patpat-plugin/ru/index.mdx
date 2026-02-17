@@ -2,10 +2,9 @@
 title: Быстрый старт
 description: Начало работы с плагином
 ---
-import { ModrinthLogo, CurseForgeLogo } from '@/components/ui/link-icons';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { GithubInfo } from 'fumadocs-ui/components/github-info';
-import { Github, PartyPopper } from 'lucide-react';
+import { SiModrinth, SiCurseforge } from '@icons-pack/react-simple-icons'
 
 ## Введение
 
@@ -60,7 +59,6 @@ import { File, Folder, Files } from 'fumadocs-ui/components/files';
     <File name="server.jar" />
     <File name="server.properties" />
     <File name="start.sh" />
-    <File name="global.css" />
   </Folder>
 </Files>
 
@@ -73,12 +71,12 @@ import { File, Folder, Files } from 'fumadocs-ui/components/files';
   <Card
     href="https://modrinth.com/plugin/patpat"
     title="Modrinth"
-    icon={<ModrinthLogo/>} 
+    icon={<SiModrinth color='default'/>}
   />
   <Card
     href="https://www.curseforge.com/minecraft/bukkit-plugins/patpat-plugin"
     title="CurseForge"
-    icon={<CurseForgeLogo className="fd-foreground"/>} 
+    icon={<SiCurseforge color='var(--color-fd-foreground)'/>}
   />
 </Cards>
 #### Исходный код
@@ -86,4 +84,3 @@ import { File, Folder, Files } from 'fumadocs-ui/components/files';
   owner="LopyMine"
   repo="PatPat-Plugin"
 />
-

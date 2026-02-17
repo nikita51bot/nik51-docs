@@ -2,7 +2,7 @@
   "title": "PatPat Plugin",
   "description": "Documentation about PatPat Plugin",
 
-  "pages": ["index"],
+  "pages": ["index", "functional", "commands"],
   "root": true
 }
 

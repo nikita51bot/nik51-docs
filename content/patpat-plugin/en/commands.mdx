@@ -1,0 +1,58 @@
+---
+title: Commands
+description: Commands and how they work
+---
+import { LuckPermsLogo } from '@/components/ui/icons';
+import DynamicLink from 'fumadocs-core/dynamic-link';
+
+The plugin provides a set of commands that allow you to manage plugin settings
+and perform various actions. Each command requires the appropriate permission.
+To manage player permissions, you need to use an external permission management
+plugin. I recommend using [<LuckPermsLogo className="inline pb-[3px]" height="24px"/> LuckPerms](https://luckperms.net/).
+It is also important to note that nested permissions become available when the
+parent permission is granted. For example, for the command:
+
+```shell
+/patpat ratelimit set limit
+```
+
+The user must be granted the following permissions:
+
+```plain
+patpat.command.ratelimit
+patpat.command.ratelimit.set
+patpat.command.ratelimit.set.limit
+```
+
+You can also grant permissions for all subcommands at once:
+
+```plain
+patpat.command.ratelimit
+patpat.command.ratelimit.*
+```
+
+<Callout type="info">
+You can see which permissions are missing for a user in debug mode
+(available since version 1.2.5).
+</Callout>
+
+Permissions for each command are listed below:
+
+| Command                                                                                                  | Permission                             | Description                                           |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------------------- |
+| /patpat info                                                                                             | patpat.command.info                    | Displays information about the plugin and server      |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#add">/patpat list add</DynamicLink>        | patpat.command.list.add                | Adds a player to the list                             |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#info">/patpat list info</DynamicLink>      | patpat.command.list.info               | Shows players currently in the list and the list mode |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#remove">/patpat list remove</DynamicLink>  | patpat.command.list.remove             | Removes a player from the list                        |
+| <DynamicLink href="/[lang]/docs/patpat-plugin/functional/list#set">/patpat list set</DynamicLink>        | patpat.command.list.set                | Sets the list mode                                    |
+| /patpat pat                                                                                              | patpat.command.pat                     | Pat an entity                                         |
+| /patpat permission disable                                                                               | patpat.command.permission.toggle       | Disable patting permission                            |
+| /patpat permission enable                                                                                | patpat.command.permission.toggle       | Enable patting permission                             |
+| /patpat permission set                                                                                   | patpat.command.permission.set          | Set patting permissions                               |
+| /patpat ratelimit disable                                                                                | patpat.command.ratelimit.toggle        | Disable ratelimit                                     |
+| /patpat ratelimit enable                                                                                 | patpat.command.ratelimit.toggle        | Enable ratelimit                                      |
+| /patpat ratelimit info                                                                                   | patpat.command.ratelimit.info          | Displays ratelimit information                        |
+| /patpat ratelimit set increment                                                                          | patpat.command.ratelimit.set.increment | Sets token increment amount for ratelimit             |
+| /patpat ratelimit set interval                                                                           | patpat.command.ratelimit.set.interval  | Sets token interval for ratelimit                     |
+| /patpat ratelimit set limit                                                                              | patpat.command.ratelimit.set.limit     | Sets player token limits for ratelimit                |
+| /patpat reload                                                                                           | patpat.command.reload                  | Reloads the plugin configuration                      |

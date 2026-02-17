@@ -1,0 +1,8 @@
+{
+  "title": "Functional",
+  "description": "Plugin features that can be configured",
+
+  "pages": ["index", "list"],
+  "root": false
+}
+

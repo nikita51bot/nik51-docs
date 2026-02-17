@@ -1,0 +1,54 @@
+---
+title: List Mode
+description: Description of how the list mode works
+---
+import { Plus, Minus, List } from 'lucide-react';
+
+The list mode is used to restrict or grant permission to perform petting actions
+by adding players (or their UUIDs) to the list and selecting its operating mode.
+This list is stored in the `player-list.txt` file inside the config folder and
+represents a list of players in the following format:
+
+```markdown title="player-list.txt"
+a4369612-4870-3833-9a0b-1f1073297c22 nikita51
+192e3748-12d5-4573-a8a5-479cd394a1dc LopyMine
+...
+```
+
+### Management Commands
+
+#### View list info [#info]
+
+```shell
+/patpat list info
+```
+
+Displays the current players in the list and the active operating mode.
+
+#### Add a player [#add]
+
+```bash
+/patpat list add "player|uuid"
+```
+
+Adds a player to the list by name or UUID.
+
+#### Remove a player [#remove]
+
+```shell
+/patpat list remove "player|uuid"
+```
+
+Removes a player from the list.
+
+#### Operating modes [#set]
+
+```shell
+/patpat list set "mode"
+```
+
+Changes the operating mode to one of the following:
+
+- `BLACKLIST` — only players NOT in the list can perform petting
+- `WHITELIST` — only players in the list can perform petting
+- `DISABLED` — any player can perform petting
